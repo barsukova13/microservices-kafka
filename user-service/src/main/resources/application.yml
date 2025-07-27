@@ -4,3 +4,13 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+      spring:
+        application:
+          name: user-service
+        client:
+          serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+        instance:
+          instance-id: ${spring.application.name}:${random.value}
+          prefer-ip-address: true
